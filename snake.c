@@ -11,6 +11,11 @@
 #define RIGHT 'd'
 int map[MAX_Y][MAX_X];
 
+typedef struct Snake
+{
+    int body[MAX_X * MAX_Y][2];
+} Snake;
+
 void get_food()
 {
     
@@ -75,19 +80,25 @@ void engine(char input,int* a,int* b)
             map[*a][*b] = 0; 
             *b += 1;
             map[*a][*b] = 1;
-            break;
-
-        
+            break;  
     }
 }   
 
 int main(void)
 {
     char ch;
-    map[MAX_Y/2][MAX_X/2] = 1;
     int cur_Y = MAX_Y/2;
     int cur_X = MAX_X/2;
+    map[cur_Y][cur_X] = 1;
+
+    Snake snake;
+
+    snake.body[0][0] = cur_Y;
+    snake.body[0][1] = cur_X;
     
+    snake.body[1][0] = cur_Y+1;
+    snake.body[1][1] = cur_X;
+
     map[1][1] = 2;
 
     while(1)
