@@ -99,6 +99,5 @@ int main(void)
         ////3////
         display();
     }
-    printf("hello cit\n");
     return 0;
 }
